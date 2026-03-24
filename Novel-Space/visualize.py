@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 if __name__ == '__main__':
 
     wavelength = 'CuKa'
-    min_angle, max_angle = 10.00837, 69.99295
+    min_angle, max_angle = 20.0, 60.0
     show_reduced = False
     inc_pdf = False
     save = False

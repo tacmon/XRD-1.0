@@ -16,7 +16,7 @@ if __name__ == '__main__':
     impur_amt = 70.0 # Max amount of impurity phases to include (%)
     num_spectra = 50 # Number of spectra to simulate per phase
     separate = False # If False: apply all artifacts simultaneously
-    min_angle, max_angle = 10.00837, 69.99295
+    min_angle, max_angle = 20.0, 60.0
     num_epochs = 50
     skip_filter = False
     include_elems = True

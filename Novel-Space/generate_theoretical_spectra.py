@@ -51,8 +51,8 @@ def main():
     os.makedirs(spectra_dir, exist_ok=True)
     
     # 设定与模型一致的角度和采样数
-    min_angle = 10.00837
-    max_angle = 69.99295
+    min_angle = 20.0
+    max_angle = 60.0
     n_points = 4501
     
     angle_grid = np.linspace(min_angle, max_angle, n_points)

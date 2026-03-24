@@ -6,7 +6,7 @@ plot_real_spectra.py
 并将其输出为曲线形图表，保存在 ./Novel-Space/figure/real_data 下面。
 
 用法：
-    cd /root/xrd/wrh-ML/Novel-Space
+    cd /root/xrd/XRD-1.0/Novel-Space
     python plot_real_spectra.py
 """
 

@@ -1,0 +1,72 @@
+filename,min_angle,max_angle
+1.txt,20.0,60.0014
+10.txt,20.0,60.0014
+2.txt,20.0,60.0014
+3.txt,20.0,60.0014
+4.txt,20.0,60.0014
+6.txt,20.0,60.0014
+7.txt,20.0,60.0014
+8.txt,20.0,60.0014
+9.txt,20.0,60.0014
+A-1_NbSe2-mental-2.txt,5.00429,89.99885
+AgCr2Te4-J113-2.txt,10.0,90.0
+Al2O3_10_120_0.01_1_background_Pr.txt,10.00158,119.99409
+AlN_1.txt,20.0,60.0014
+AlN_10.txt,20.0,60.0014
+AlN_11.txt,20.0,60.0014
+AlN_12.txt,20.0,60.0014
+AlN_2.txt,20.0,60.0014
+AlN_3.txt,20.0,60.0014
+AlN_4.txt,20.0,60.0014
+AlN_5.txt,20.0,60.0014
+AlN_6.txt,20.0,60.0014
+AlN_7.txt,20.0,60.0014
+AlN_8.txt,20.0,60.0014
+AlN_9.txt,20.0,60.0014
+Bi2Te3_166_Theoretical.txt,10.00837,69.99295
+BiSiTe3-1.txt,5.0,90.0
+BiSiTe3-2.txt,5.0,90.0
+BiSiTe3-3.txt,5.0,90.0
+BiSiTe3-4.txt,5.0,90.0
+BiSiTe3-5.txt,5.0,90.0
+BiSiTe3-6.txt,5.0,90.0
+BiSiTe3-7.txt,5.0,90.0
+BiSiTe3-8.txt,5.0,90.0
+C034_FeZrT5_2_10_90_0.01_Pr_1.txt,10.00158,79.99318
+C63_FeMoTe_2_5_90_0.01_GK.txt,5.00752,89.99863
+Cr5Te8-powder.txt,3.0,90.0
+CrAgTe2_160_Theoretical.txt,20.0,60.0
+CrAlTe-1.txt,10.0,85.0
+CrAlTe-2.txt,3.0,90.0
+CrAlTe-3.txt,3.0,90.0
+CrSiTe3  PURE FZ40.txt,3.0,90.0
+CrSiTe3 B027.txt,5.0,90.0
+CrSiTe3 B028.txt,5.0,90.0
+CrSiTe3 pure B025-2.txt,5.0,90.0
+CrSiTe3 pure B025-3.txt,5.0,90.0
+CrSiTe3 pure B025.txt,5.0,90.0
+CrSiTe3_1.txt,10.00837,79.9974
+CrSiTe3_148_Theoretical.txt,10.00837,69.99295
+CrSiTe3_180_10_70_0.01_txt.txt,10.00158,69.99295
+CrSiTe3_2.txt,10.00837,79.9974
+CrSiTe3_300_10_80_0.01.txt,10.00158,79.99318
+CrSiTe3_360_10_70_0.01_txt.txt,10.00158,69.99295
+CrSiTe3_back_10_70_0.01_Pr_1.txt,10.00837,69.99819
+CrSiTe3_rotation_0.01_10_80_0.01.txt,10.00158,79.99318
+CrTe2_JBX_J197_CT.txt,10.0,75.0
+DC3.txt,20.0,60.0014
+DC4.txt,20.0,60.0014
+DC5.txt,20.0,60.0014
+FeS_5_90_0.01_J05-右.txt,5.00117,89.99242
+FeTe2_5_90_0.01_GK.txt,5.00752,89.99863
+J193_ZnIn2Te4.txt,5.00429,89.99885
+J193_ZnIn2Te4_2.txt,5.00429,89.99885
+J215_ZnIn2Te4.txt,5.00429,89.99885
+RF3.txt,20.0,60.0014
+RF4.txt,20.0,60.0014
+RF5.txt,20.0,60.0014
+Si2Te3.txt,10.00837,79.9974
+SiBiTe3_148_Theoretical.txt,10.00837,69.99295
+SiTe2_164_Theoretical.txt,10.00837,69.99295
+SmS-5-90-0.02.txt,5.01767,79.99751
+VZrSe_5_90_0.01_GK.txt,5.00752,89.99863

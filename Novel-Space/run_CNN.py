@@ -44,7 +44,7 @@ if __name__ == '__main__':
     raw = True # Whether to show the raw spectrum or its denoised product
     show_indiv = False # Whether to show individual predictions from XRD and PDF
     refined_phases_dir = None
-    min_angle, max_angle = 10.00837, 69.99295
+    min_angle, max_angle = 20.0, 60.0
     for arg in sys.argv:
         if '--max_phases' in arg:
             max_phases = int(arg.split('=')[1])
