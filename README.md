@@ -2,6 +2,8 @@
 
 本文档介绍了 `Novel-Space` 目录下 Python 脚本的功能和运行方法，该系统利用卷积神经网络（CNN）对 X 射线衍射（XRD）图谱进行自动化物相识别和量化分析。
 
+参考代码：[https://github.com/morethankk/XRD-AutoAnalyzer-PyTorch-full](https://github.com/morethankk/XRD-AutoAnalyzer-PyTorch-full)
+
 ## 1. 结构与安装
 
 建议在环境根目录下运行以下命令以安装依赖库（如果尚未安装）：
