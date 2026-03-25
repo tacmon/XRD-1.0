@@ -11,7 +11,11 @@
 pip install -e .
 ```
 
-所有的主要脚本均位于 `Novel-Space/` 目录下。
+所有的主要脚本均位于 `Novel-Space/` 目录下。运行前请务必先进入该文件夹：
+```bash
+cd Novel-Space
+```
+
 
 ## 2. 核心脚本介绍
 
@@ -19,16 +23,16 @@ pip install -e .
 **功能**：从 Materials Project 数据库下载指定材料的 CIF 晶体结构文件。
 **用法**：
 ```bash
-python Novel-Space/download_mp.py
+python download_mp.py
 ```
 - 运行后会有交互式提示 `输入ID：`，输入 MP ID（如 `1234` 代表 `mp-1234`）。
-- 默认保存到 `Novel-Space/All_CIFs/` 目录。
+- 默认保存到 `All_CIFs/` 目录。
 
 ### (2) `get-entries.py`
 **功能**：从 `ICSD/` 库中根据元素组成空间过滤并提取 CIF 文件。
 **用法**：
 ```bash
-python Novel-Space/get-entries.py
+python get-entries.py
 ```
 - 需要先在脚本中修改 `inc_elems`（例如 `{'Li', 'Sn', 'In', 'O'}`）。
 
@@ -36,7 +40,7 @@ python Novel-Space/get-entries.py
 **功能**：生成扩增的虚拟 XRD 图谱训练集，并训练一个基于 PyTorch 的 CNN 模型。
 **用法**：
 ```bash
-python Novel-Space/construct_xrd_model.py [选项]
+python construct_xrd_model.py [选项]
 ```
 - **重要选项**：
   - `--num_spectra=N`：每个物相生成的模拟图谱数（默认 50）。
@@ -48,7 +52,7 @@ python Novel-Space/construct_xrd_model.py [选项]
 **功能**：生成模拟的对分布函数（PDF）图谱，并训练独立的 PDF-CNN 模型。
 **用法**：
 ```bash
-python Novel-Space/construct_pdf_model.py [选项]
+python construct_pdf_model.py [选项]
 ```
 - **前提**：目录下需已存在 `Model.pth`，脚本会将其重命名并存放到 `Models/` 目录。
 
@@ -56,7 +60,7 @@ python Novel-Space/construct_pdf_model.py [选项]
 **功能**：使用训练好的 PyTorch 模型，对 `Spectra/` 目录下的测试图谱进行晶相识别和推断。
 **用法**：
 ```bash
-python Novel-Space/run_CNN.py [选项]
+python run_CNN.py [选项]
 ```
 - **重要选项**：
   - `--max_phases=N`：最大识别物相数（默认 3）。
@@ -72,28 +76,28 @@ python Novel-Space/run_CNN.py [选项]
 **功能**：基于 `References/` 中的 CIF 生成平滑的理论 XRD 参考图谱。
 **用法**：
 ```bash
-python Novel-Space/generate_theoretical_spectra.py
+python generate_theoretical_spectra.py
 ```
 
 ### (7) `extract_ranges.py`
 **功能**：扫描 `Spectra/` 实验图谱，提取其 2-theta 角度范围并记录在 `angle_ranges.csv` 中。
 **用法**：
 ```bash
-python Novel-Space/extract_ranges.py
+python extract_ranges.py
 ```
 
 ### (8) `visualize.py`
 **功能**：对单个图谱进行可视化分析，将特定物相叠加在测量曲线上展示。
 **用法**：
 ```bash
-python Novel-Space/visualize.py --spectrum=[文件名.txt] --ph=[物相1] --ph=[物相2] --plot --save
+python visualize.py --spectrum=[文件名.txt] --ph=[物相1] --ph=[物相2] --plot --save
 ```
 
 ### (9) `plot_real_spectra.py`
 **功能**：读取 `Spectra/` 下的所有实验数据，按模型基准（如 20-60°, 4501点）进行插值对齐和归一化，并输出可视化曲线。
 **用法**：
 ```bash
-python Novel-Space/plot_real_spectra.py
+python plot_real_spectra.py
 ```
 - **输出**：图像保存在 `figure/real_data/` 目录下。
 
@@ -101,7 +105,7 @@ python Novel-Space/plot_real_spectra.py
 **功能**：对 `result.csv` 进行后处理，例如筛选特定物相或处理低置信度的“未知”标记（用于特定项目，如 CST 识别）。
 **用法**：
 ```bash
-python Novel-Space/process_results.py
+python process_results.py
 ```
 - **输出**：保存到 `result_processed.csv`。
 
@@ -109,7 +113,7 @@ python Novel-Space/process_results.py
 **功能**：从 `XRD.npy` 训练数据中提取特定的物相（如 CrSiTe3）样本，并保存为可视化图像，用于结果校准和参考。
 **用法**：
 ```bash
-python Novel-Space/extract_CrSiTe3_from_npy.py
+python extract_CrSiTe3_from_npy.py
 ```
 - **输出**：图像保存在 `figure/real_data/参考/` 目录下。
 
@@ -117,11 +121,11 @@ python Novel-Space/extract_CrSiTe3_from_npy.py
 **功能**：将 `figure/real_data/` 子目录下的多张图谱（如 AlN, BST, CST 等）自动合成为动态 GIF，便于观察识别过程或物相变化。
 **用法**：
 ```bash
-python Novel-Space/make_gifs.py
+python make_gifs.py
 ```
 - **输出**：生成的 GIF 文件保存在 `figure/real_data/gif/` 目录下。
 
 ---
-> [!NOTE]
-> 1. 运行过程中如果遇到路径问题，请确保在 `/root/xrd/XRD-1.0/` 目录下执行脚本（使用 `python Novel-Space/xxx.py`）。
-> 2. 部分绘图脚本（如 `plot_real_spectra.py`）依赖于 `Model_ML.pkl` 中的网格配置，请确保该文件存在。
+> [!IMPORTANT]
+> 如果遇到问题，请确保在“次级目录”运行，即 `Novel-Space` 目录或者 `Example` 目录，而不是项目根目录。
+
