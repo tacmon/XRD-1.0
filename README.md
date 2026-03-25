@@ -22,7 +22,7 @@ pip install -e .
 python Novel-Space/download_mp.py
 ```
 - 运行后会有交互式提示 `输入ID：`，输入 MP ID（如 `1234` 代表 `mp-1234`）。
-- 默认保存到 `./All_CIFS/` 目录。
+- 默认保存到 `Novel-Space/All_CIFs/` 目录。
 
 ### (2) `get-entries.py`
 **功能**：从 `ICSD/` 库中根据元素组成空间过滤并提取 CIF 文件。
@@ -105,6 +105,23 @@ python Novel-Space/process_results.py
 ```
 - **输出**：保存到 `result_processed.csv`。
 
+### (11) `extract_CrSiTe3_from_npy.py`
+**功能**：从 `XRD.npy` 训练数据中提取特定的物相（如 CrSiTe3）样本，并保存为可视化图像，用于结果校准和参考。
+**用法**：
+```bash
+python Novel-Space/extract_CrSiTe3_from_npy.py
+```
+- **输出**：图像保存在 `figure/real_data/参考/` 目录下。
+
+### (12) `make_gifs.py`
+**功能**：将 `figure/real_data/` 子目录下的多张图谱（如 AlN, BST, CST 等）自动合成为动态 GIF，便于观察识别过程或物相变化。
+**用法**：
+```bash
+python Novel-Space/make_gifs.py
+```
+- **输出**：生成的 GIF 文件保存在 `figure/real_data/gif/` 目录下。
+
 ---
 > [!NOTE]
-> 运行过程中如果遇到路径问题，请确保在 `/root/xrd/XRD-1.0/` 或 `Novel-Space/` 目录下执行脚本，部分脚本会自动切换工作目录。
+> 1. 运行过程中如果遇到路径问题，请确保在 `/root/xrd/XRD-1.0/` 目录下执行脚本（使用 `python Novel-Space/xxx.py`）。
+> 2. 部分绘图脚本（如 `plot_real_spectra.py`）依赖于 `Model_ML.pkl` 中的网格配置，请确保该文件存在。
