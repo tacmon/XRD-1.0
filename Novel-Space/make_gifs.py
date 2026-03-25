@@ -26,26 +26,42 @@ def create_gif(directory, output_filename, duration):
         print(f"No image files found in {directory}.")
         return
 
+    from PIL import Image
     print(f"Creating {output_filename} from {len(filenames)} images in {directory} (duration={duration}s)...")
     
+    # Load all images with PIL
+    pil_images = []
     for filename in filenames:
         filepath = os.path.join(directory, filename)
-        images.append(imageio.imread(filepath))
+        pil_images.append(Image.open(filepath))
     
-    imageio.mimsave(output_filename, images, duration=duration, loop=0)
-    print(f"Successfully saved {output_filename}")
+    if not pil_images:
+        return
+
+    # Convert duration from seconds to milliseconds for Pillow
+    duration_ms = int(duration * 1000)
+    
+    # The first image acts as the base, the rest are appended
+    pil_images[0].save(
+        output_filename,
+        save_all=True,
+        append_images=pil_images[1:],
+        duration=duration_ms,
+        loop=0
+    )
+    print(f"Successfully saved {output_filename} with frame duration {duration_ms}ms")
 
 if __name__ == "__main__":
     base_dir = "/root/xrd/XRD-1.0/Novel-Space/figure/real_data"
     
     # Task (1): 0.25s per frame
-    create_gif(os.path.join(base_dir, "参考"), os.path.join(base_dir, "参考.gif"), duration=0.25)
+    create_gif(os.path.join(base_dir, "参考"), os.path.join(base_dir, "gif/参考.gif"), duration=0.3)
     
     # Task (2): 0.1s per frame
-    create_gif(os.path.join(base_dir, "AlN"), os.path.join(base_dir, "AlN.gif"), duration=0.1)
+    create_gif(os.path.join(base_dir, "AlN"), os.path.join(base_dir, "gif/AlN.gif"), duration=0.15)
     
     # Task (3): 0.25s per frame
-    create_gif(os.path.join(base_dir, "BST"), os.path.join(base_dir, "BST.gif"), duration=0.25)
+    create_gif(os.path.join(base_dir, "BST"), os.path.join(base_dir, "gif/BST.gif"), duration=0.15)
     
     # Task (4): 0.25s per frame
-    create_gif(os.path.join(base_dir, "CST"), os.path.join(base_dir, "CST.gif"), duration=0.25)
+    create_gif(os.path.join(base_dir, "CST"), os.path.join(base_dir, "gif/CST.gif"), duration=0.15)
