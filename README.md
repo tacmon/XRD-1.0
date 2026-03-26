@@ -16,7 +16,6 @@ pip install -e .
 cd Novel-Space
 ```
 
-
 ## 2. 核心脚本介绍
 
 ### (1) `download_mp.py`
@@ -109,13 +108,14 @@ python process_results.py
 ```
 - **输出**：保存到 `result_processed.csv`。
 
-### (11) `extract_CrSiTe3_from_npy.py`
-**功能**：从 `XRD.npy` 训练数据中提取特定的物相（如 CrSiTe3）样本，并保存为可视化图像，用于结果校准和参考。
+### (11) `extract_sample_from_npy.py`
+**功能**：从 `XRD.npy` 训练数据中提取特定的物相（如 CrSiTe3, AlN, Si 等）原始图谱样本，并保存为 `.txt` 格式到 `Spectra/` 目录下。这通常用于验证模型对于训练集中“已知”数据的识别精度。
 **用法**：
 ```bash
-python extract_CrSiTe3_from_npy.py
+python extract_sample_from_npy.py
 ```
-- **输出**：图像保存在 `figure/real_data/参考/` 目录下。
+- **注意**：需要在脚本中修改 `indices` 或变量以针对不同的物相进行提取。
+- **输出**：`.txt` 数据文件保存在 `Spectra/` 目录下。
 
 ### (12) `make_gifs.py`
 **功能**：将 `figure/real_data/` 子目录下的多张图谱（如 AlN, BST, CST 等）自动合成为动态 GIF，便于观察识别过程或物相变化。
@@ -124,6 +124,20 @@ python extract_CrSiTe3_from_npy.py
 python make_gifs.py
 ```
 - **输出**：生成的 GIF 文件保存在 `figure/real_data/gif/` 目录下。
+
+## 4. 典型工作流示例
+
+为了确保系统正确运行，建议遵循以下流程：
+
+1. **进入工作目录**：`cd Novel-Space`
+2. **准备参考文件**：将相关的 CIF 文件放置于 `References/` 或使用 `download_mp.py` 获取。
+3. **训练模型**：运行 `python construct_xrd_model.py` 生成训练模型 `Model.pth`。
+4. **准备待测数据**：确保实验图谱以 `.txt` 或 `.xy` 格式存放在 `Spectra/` 目录下。
+5. **执行预测**：运行 `python run_CNN.py --plot` 进行晶相识别，并生成包含可视化对比图的 `result.csv`。
+6. **分析与可视化**：
+   - 运行 `python plot_real_spectra.py` 预处理并导出所有待测数据的曲线。
+   - 运行 `python make_gifs.py` 合成动态图，直观对比识别效果。
+7. **数据提取（可选）**：运行 `python extract_sample_from_npy.py` 提取训练集内样本供对比分析。
 
 ---
 > [!IMPORTANT]

@@ -10,7 +10,7 @@ num_points = 4501
 
 # Load data
 data = np.load(data_path, allow_pickle=True)
-
+print(data.shape)
 # data shape is (2, 250, 4501, 1)
 # data[0] is CrSiTe3 (alphabetically first)
 # data[1] is Si
@@ -23,8 +23,8 @@ angles = np.linspace(min_angle, max_angle, num_points)
 indices = [0, 100, 200]
 
 for i, idx in enumerate(indices):
-    spectrum = data[0][idx, :, 0]
-    filename = os.path.join(spectra_dir, f"CrSiTe3_extracted_{i+1}.txt")
+    spectrum = data[2][idx, :, 0]
+    filename = os.path.join(spectra_dir, f"AlN_3_extracted_{i+1}.txt")
     
     # Save in the same format as existing files: angle  intensity
     # Using tab separation and 5-8 decimal places
