@@ -143,3 +143,8 @@ python make_gifs.py
 > [!IMPORTANT]
 > 如果遇到问题，请确保在“次级目录”运行，即 `Novel-Space` 目录或者 `Example` 目录，而不是项目根目录。
 
+## 5. 项目之间的跳转
+本项目是系列工具的一部分，您可以点击下方链接跳转到其他版本：
+
+- [XRD-1.0](https://github.com/tacmon/XRD-1.0)：（当前项目）初始版本，包含完整的辅助脚本和数据处理工具。
+- [XRD-1.1](https://github.com/tacmon/XRD-1.1)：精简版，优化了脚本结构并增加了环境自动初始化工作流。
